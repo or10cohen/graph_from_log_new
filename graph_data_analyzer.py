@@ -30,7 +30,7 @@ def create_graph(data):
 
         #plt.draw()
         plt.pause(2)
-        plt.savefig('graphs/' + graph["graph_title"] + ".png")
+        plt.savefig(graph["graph_title"] + ".png")
         #plt.close()
     return graph_data_titles
 
