@@ -34,3 +34,5 @@ if __name__ == '__main__':
     NumberDataLines, DataLines = search_str(logFileText, firstTextSearch)
     print(Fore.GREEN + str(NumberDataLines))
     print(Fore.GREEN + str(len(DataLines)))
+
+    print('Or Yosef Cohen')
