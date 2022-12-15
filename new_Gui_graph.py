@@ -30,10 +30,10 @@ def main():
 ##----------------------------------------------------------------------------------------------------------------------
     with st.sidebar:
         st.title('choose log.txt')
-        list_log_from_computer = os.listdir(r'\logs')
+        # list_log_from_computer = os.listdir(r'\logs')
         log_file_text = st.selectbox(
             'choose log.txt',
-            list_log_from_computer)
+            log_105222106473.txt) #list_log_from_computer
 
         uploaded_log_file = st.file_uploader("or upload log text file")
         if uploaded_log_file is not None:
