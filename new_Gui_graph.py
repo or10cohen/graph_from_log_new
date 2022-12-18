@@ -30,7 +30,7 @@ def main():
 ##----------------------------------------------------------------------------------------------------------------------
     with st.sidebar:
         st.title('choose log.txt')
-    #     list_log_from_computer = os.listdir(r'\logs')
+        list_log_from_computer = os.listdir('logs')
     #     log_file_text = st.selectbox(
     #         'choose log.txt',
     #         list_log_from_computer)
