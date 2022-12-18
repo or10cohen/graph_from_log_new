@@ -39,7 +39,7 @@ def main():
         if uploaded_log_file is not None:
             st.write("filename:", uploaded_log_file.name)
             string_data = io.StringIO(uploaded_log_file.getvalue().decode("utf-8")).read()
-            text_file = open('logs\log_' + uploaded_log_file.name, 'w')
+            text_file = open('logs\\log_' + uploaded_log_file.name, 'w')
             text_file.write(string_data)
             text_file.close()
     #
