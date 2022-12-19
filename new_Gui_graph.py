@@ -26,18 +26,19 @@ def main():
         Run_Function = 'Dont Run Function'
 
 ##---------------------------------------------------sidebar------------------------------------------------------------
-##-------------------------------------------choose Datatype&Dataset----------------------------------------------------
+##-------------------------------------------choose or upload Log file----------------------------------------------------
 ##----------------------------------------------------------------------------------------------------------------------
     with st.sidebar:
         st.title('choose log.txt')
-        list_log_from_computer = os.listdir('logs')
-        log_file_text = st.selectbox(
-            'choose log.txt',
-            list_log_from_computer)
+        # list_log_from_computer = os.listdir('logs')
+        # log_file_text = st.selectbox(
+        #     'choose log.txt',
+        #     list_log_from_computer)
     #
         uploaded_log_file = st.file_uploader("or upload log text file")
         if uploaded_log_file is not None:
-            st.write("filename:", uploaded_log_file.name)
+            st.write("fileName:", uploaded_log_file.name)
+            st.write("fileType:", uploaded_log_file.type)
             string_data = io.StringIO(uploaded_log_file.getvalue().decode("utf-8")).read()
             text_file = open(f'logs' + str(uploaded_log_file.name), 'w')
             text_file.write(string_data)
@@ -58,7 +59,7 @@ def main():
 ##----------------------------------------------------------------------------------------------------------------------
     if Run_Function == 'Run Function':
         # log_file_path = 'logs\\' + log_file_text
-        log_file_path = "105222106473.txt"
+        log_file_path = uploaded_log_file
 
 #######-----------------------------------------------------------------------------------------------------------#####
         # find_SN = 'phal-util mb SerialNumberGet'
