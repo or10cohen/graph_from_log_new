@@ -46,7 +46,7 @@ def main():
 
         datafile = st.file_uploader("or upload log text file")
         if datafile is not None:
-            file_details = {"FileName": datafile.name, "FileType": datafile.type}
+            file_details = {"FileName": datafile.name, "FileType1": datafile.type}
             df = pd.fwf(datafile)
             st.dataframe(df)
             save_uploadedfile(datafile)
