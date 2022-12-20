@@ -1,4 +1,5 @@
 import os
+import pandas as pd
 import streamlit as st
 import colorama
 from colorama import Fore, Back, Style
@@ -12,6 +13,13 @@ import io
 import time
 
 def main():
+
+
+    def save_uploadedfile(uploadedfile):
+        with open(os.path.join("tempDir", uploadedfile.name), "wb") as f:
+            f.write(uploadedfile.getbuffer())
+        return st.success("Saved File:{} to tempDir".format(uploadedfile.name))
+
 ##----------------------------------------------------------------------------------------------------------------------
 ##----------------------------------------------main page---------------------------------------------------------------
 ##-------------------------------------------Grpah GUI for Gen2 log-----------------------------------------------------
@@ -35,14 +43,23 @@ def main():
             'choose log.txt',
             list_log_from_computer)
     #
-        uploaded_log_file = st.file_uploader("or upload log text file")
-        if uploaded_log_file is not None:
-            st.write("fileName:", uploaded_log_file.name)
-            st.write("fileType:", uploaded_log_file.type)
-            string_data = io.StringIO(uploaded_log_file.getvalue().decode("utf-8")).read()
-            text_file = open(f'logs' + str(uploaded_log_file.name), 'w')
-            text_file.write(string_data)
-            text_file.close()
+
+        datafile = st.file_uploader("or upload log text file")
+        if datafile is not None:
+            file_details = {"FileName": datafile.name, "FileType": datafile.type}
+            df = pd.fwf(datafile)
+            st.dataframe(df)
+            save_uploadedfile(datafile)
+
+
+        # uploaded_log_file = st.file_uploader("or upload log text file")
+        # if uploaded_log_file is not None:
+        #     st.write("fileName:", uploaded_log_file.name)
+        #     st.write("fileType:", uploaded_log_file.type)
+        #     string_data = io.StringIO(uploaded_log_file.getvalue().decode("utf-8")).read()
+        #     text_file = open(f'logs' + str(uploaded_log_file.name), 'w')
+        #     text_file.write(string_data)
+        #     text_file.close()
     #
     #     st.title('After upload file, please press \'Rerun\' in up-right corner.')
 
