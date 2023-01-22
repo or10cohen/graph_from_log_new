@@ -47,8 +47,8 @@ def main():
         datafile = st.file_uploader("or upload log text file")
         if datafile is not None:
             file_details = {"FileName": datafile.name, "FileType1": datafile.type}
-            df = pd.fwf(datafile)
-            st.dataframe(df)
+            # df = pd.fwf(datafile)
+            # st.dataframe(df)
             save_uploadedfile(datafile)
 
 
@@ -180,7 +180,7 @@ def main():
             st.image('US4 spurious measurement.png', caption='US4 spurious measurement.png')
         with tab5:
             st.header("Python Code")
-            # st.code(open("graph_data_analyzer.py").read(), language="python")
+            st.code(open("graph_data_analyzer.py").read(), language="python")
 
     elif Run_Function == 'Dont Run Function':
         print('press run function')
