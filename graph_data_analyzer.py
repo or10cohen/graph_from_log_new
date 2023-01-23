@@ -13,7 +13,7 @@ def upload_to_github(file_path, access_token):
         file_content = f.read()
 
     # Encode the binary content as base64
-    encoded_content = encoded_content
+    encoded_content = file_content
 
     # Prepare the data for the POST request
     data = json.dumps({
