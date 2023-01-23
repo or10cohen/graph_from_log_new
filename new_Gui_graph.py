@@ -102,10 +102,10 @@ def main():
         find_next_data6 = "{'graph_title': 'DS2 Flatness and Tilt 0"
         find_next_data7 = "{'graph_title': 'DS2 Flatness and Tilt 7.0"
         find_next_data8 = "{'graph_title': 'DS2 Flatness and Tilt 13.0"
-        find_next_data9 = "{'graph_title': 'US1"  # INCLUD US2, US3, US4
+        # find_next_data9 = "{'graph_title': 'US1"  # INCLUD US2, US3, US4
         find_next_data2 = "[{'graph_title': 'DS1 Full bandwidth signal"  # INCLUD DS2
         find_next_datas = [find_next_data2, find_next_data3, find_next_data4, find_next_data5,
-                           find_next_data6, find_next_data7, find_next_data8, find_next_data9]
+                           find_next_data6, find_next_data7, find_next_data8]
         for find_next_data in find_next_datas:
             location_data_inside_lines, location_data_lines, datas = search_str(log_file_path, find_next_data)
             for data in datas:
@@ -154,7 +154,15 @@ def main():
             # NN_graph = Image.open('DS1 Flatness and Tilt 0.0.png')
             st.image('DS2 Flatness and Tilt 13.0.png', caption='DS2 Flatness and Tilt 13.0.png')
 
-        tab1, tab2, tab3, tab4, tab5= st.tabs(["US1", "US2", "US3", "US4", "Python code"])
+        find_next_data9 = "{'graph_title': 'US1"  # INCLUD US2, US3, US4
+        find_next_datas = [find_next_data9]
+        for find_next_data in find_next_datas:
+            location_data_inside_lines, location_data_lines, datas = search_str(log_file_path, find_next_data)
+            for data in datas:
+                create_graph([data])
+        time.sleep(0.1)
+
+        tab1, tab2, tab3, tab4, tab5 = st.tabs(["US1", "US2", "US3", "US4", "Python code"])
         with tab1:
             st.header("US1")
             # NN_graph = Image.open('DS1 Flatness and Tilt 0.0.png')
