@@ -12,13 +12,11 @@ def upload_to_github(file_path, access_token):
     with open(file_path, 'rb') as f:
         file_content = f.read()
 
-    # Encode the binary content as base64
-    encoded_content = file_content.encode('base64')
 
     # Prepare the data for the POST request
     data = json.dumps({
         'message': 'Upload '+file_path,
-        'content': encoded_content
+        'content': file_content.hex()
     })
 
     # Make the POST request to upload the file
