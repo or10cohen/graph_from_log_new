@@ -7,7 +7,7 @@ access_token = 'github_pat_11AXAYHBQ01bycjbQNd2ur_uF7PEbRhxpcoepUdK9XJOFeUsA3OPO
 
 def upload_to_github(file_path, access_token):
     headers = {'Authorization': 'Token ' + access_token}
-    url = 'https://api.github.com/repos/or10cohen/graph_from_log_new/graphs/'+file_path
+    url = 'https://api.github.com/repos/or10cohen/app/graph_from_log_new/graphs/'+file_path
 
     # Open the file and read the content
     with open(file_path, 'rb') as f:
