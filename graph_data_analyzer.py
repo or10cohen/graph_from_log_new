@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import Image
 
 def create_graph(data):
     # generate each graph present in data
@@ -33,8 +32,6 @@ def create_graph(data):
         plt.pause(1)
         plt.savefig('graphs/' + graph["graph_title"] + ".png")
         #plt.close()
-        img = Image.open(graph["graph_title"])
-        img.save('graphs/' + 'test.gif')
     return graph_data_titles
 
 if __name__ == '__main__':
