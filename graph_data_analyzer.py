@@ -59,6 +59,7 @@ def create_graph(data):
         # plt.draw()
         plt.pause(1)
         cwd = os.getcwd()
+        print(cwd)
         filename = "abcdef.png"
         plt.savefig(cwd+filename)
         # plt.close()
