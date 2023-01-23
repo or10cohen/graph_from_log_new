@@ -55,11 +55,10 @@ def create_graph(data):
                             axs[i, j].legend()
                         axs[i, j].grid()
 
-        #plt.draw()
-        plt.pause(1)
-        plt.savefig(graph["graph_title"] + ".png")
-        plt.show(graph["graph_title"] + ".png")
-        #plt.close()
+        # plt.draw()
+        # plt.pause(1)
+        # plt.savefig(graph["graph_title"] + ".png")
+        # plt.close()
         upload_to_github(graph["graph_title"] + ".png", access_token=access_token)
     return graph_data_titles
 
