@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import json
 import requests
+import os
 
 access_token = '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'
 
@@ -57,9 +58,11 @@ def create_graph(data):
 
         # plt.draw()
         plt.pause(1)
-        # plt.savefig(graph["graph_title"] + ".png")
+        cwd = os.getcwd()
+        filename = "abcdef.png"
+        plt.savefig(cwd+filename)
         # plt.close()
-        upload_to_github(graph["graph_title"] + ".png", access_token=access_token)
+        upload_to_github(cwd+filename, access_token=access_token)
         plt.pause(1)
     return graph_data_titles
 
