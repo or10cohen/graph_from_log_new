@@ -1,4 +1,32 @@
 import matplotlib.pyplot as plt
+import json
+import requests
+
+access_token = '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'
+
+def upload_to_github(file_path, access_token):
+    headers = {'Authorization': 'Token ' + access_token}
+    url = 'https://api.github.com/repos/or10cohen/graph_from_log_new/graphs/'+file_path
+
+    # Open the file and read the content
+    with open(file_path, 'rb') as f:
+        file_content = f.read()
+
+    # Encode the binary content as base64
+    encoded_content = file_content.encode('base64')
+
+    # Prepare the data for the POST request
+    data = json.dumps({
+        'message': 'Upload '+file_path,
+        'content': encoded_content
+    })
+
+    # Make the POST request to upload the file
+    response = requests.post(url, headers=headers, data=data)
+
+    # Print the status code of the response
+    print(response.status_code)
+
 
 def create_graph(data):
     # generate each graph present in data
@@ -32,6 +60,7 @@ def create_graph(data):
         plt.pause(1)
         plt.savefig('graphs/' + graph["graph_title"] + ".png")
         #plt.close()
+        upload_to_github(graph["graph_title"] + ".png", access_token=access_token)
     return graph_data_titles
 
 if __name__ == '__main__':
