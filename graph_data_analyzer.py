@@ -11,7 +11,7 @@ def upload_to_github(file_path, access_token):
     # Open the file and read the content
     with open(file_path, 'rb') as f:
         file_content = f.read()
-
+    print(f)
 
     # Prepare the data for the POST request
     data = json.dumps({
