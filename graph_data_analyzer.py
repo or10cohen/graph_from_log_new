@@ -2,31 +2,9 @@ import matplotlib.pyplot as plt
 import json
 import requests
 import os
+import upload_to_Github
 
-access_token = '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'
-
-def upload_to_github(file_path, access_token):
-    headers = {'Authorization': 'Token ' + access_token}
-    url = 'https://api.github.com/repos/or10cohen/app/graph_from_log_new/graphs/'+file_path
-
-    # Open the file and read the content
-    with open(file_path, 'rb') as f:
-        file_content = f.read()
-    # print(f)
-    # print(type(f))
-
-    # Prepare the data for the POST request
-    data = json.dumps({
-        'message': 'Upload '+file_path,
-        'content': file_content.hex()
-    })
-
-    # Make the POST request to upload the file
-    response = requests.post(url, headers=headers, data=data)
-
-    # Print the status code of the response
-    print(response.status_code)
-
+access_token = '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'
 
 def create_graph(data):
     # generate each graph present in data
@@ -58,13 +36,8 @@ def create_graph(data):
 
         # plt.draw()
         plt.pause(1)
-        cwd = os.getcwd()
-        print(cwd)
-        filename = "abcdef.png"
-        plt.savefig(cwd+filename)
-        # plt.close()
-        upload_to_github(cwd+filename, access_token=access_token)
-        plt.pause(1)
+        plot = plt.savefig(graph["graph_title"] + ".png")
+        upload_to_Github.upload_to_github(plot, access_token)
     return graph_data_titles
 
 if __name__ == '__main__':
