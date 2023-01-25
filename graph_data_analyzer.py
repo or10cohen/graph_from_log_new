@@ -39,7 +39,7 @@ def create_graph(data):
         plt.savefig(graph["graph_title"] + '1' + ".png")
         plt.show()
         # print(type(plot))
-        # upload_to_Github.upload_to_github(plot, access_token)
+        upload_to_Github.upload_to_github(graph["graph_title"] + '1' + ".png", access_token)
     return graph_data_titles
 
 if __name__ == '__main__':
