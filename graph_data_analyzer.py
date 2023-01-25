@@ -36,7 +36,6 @@ def create_graph(data):
 
         # plt.draw()
         plt.pause(1)
-        print()
         plot = plt.savefig(graph["graph_title"] + '1' + ".png")
         print(type(plot))
         upload_to_Github.upload_to_github(plot, access_token)
