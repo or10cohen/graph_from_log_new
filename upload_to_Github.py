@@ -2,8 +2,8 @@ import json
 import requests
 import base64
 
-access_token = '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'
-test_file = 'test_file_1.png'
+# access_token = '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'
+# test_file = 'test_file_1.png'
 
 def upload_to_github(file_path, access_token):
     headers = {'Authorization': 'Token ' + access_token}
@@ -32,4 +32,4 @@ def upload_to_github(file_path, access_token):
     else:
         print('Upload failed with status code', response.status_code)
 
-upload_to_github(test_file, access_token)
+# upload_to_github(test_file, access_token)
